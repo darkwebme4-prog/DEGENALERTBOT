@@ -1,0 +1,562 @@
+2026-10-22 20:35:48 [WARNING] alertbot: Startup check: OPENSEA_API_KEY is ❌ missing — OpenSea v2 API collection/market lookups are disabled.
+2026-10-22 20:37:57 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:37:57 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:37:57 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:37:57 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/my_super_secret_infura_key_12345
+2026-10-22 20:37:57 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:37:57 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:37:57 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-22 20:39:06 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:06 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:06 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:06 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-22 20:39:06 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:39:06 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:39:06 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-22 20:39:40 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:40 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:40 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:39:40 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-22 20:39:40 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:39:40 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:39:40 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-22 20:40:13 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:13 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:13 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:13 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-22 20:40:13 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:40:13 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:40:13 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-22 20:40:27 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:27 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:27 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:40:27 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-22 20:40:27 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:40:27 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:40:27 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-22 20:40:32 [WARNING] app.rpc: RPC eth_blockNumber received HTTP 429 rate limit (attempt 1/5). Backing off 0.0s...
+2026-10-22 20:40:32 [WARNING] alertbot.watchdog: [EVM] Rate limit (429) on HTTP RPC: HTTP 429 Too Many Requests (method=eth_blockNumber)
+2026-10-22 20:40:32 [WARNING] alertbot.watchdog: [Telegram Notifier unavailable] Operational warning: ⚠️ <b>Rate Limit Warning (HTTP 429) — HTTP RPC</b>
+• <b>Chain:</b> <code>EVM</code>
+• <b>Detail:</b> <code>HTTP 429 Too Many Requests (method=eth_blockNumber)</code>
+• <b>Action:</b> Applying exponential backoff to avoid quota ban.
+2026-10-22 20:40:32 [WARNING] app.chains: [Robinhood Chain] Rejecting ROBINHOOD_WS_RPC_URL because it points to the sequencer feed (feed.mainnet.chain.robinhood.com) which does not support JSON-RPC eth_subscribe.
+2026-10-22 20:40:32 [WARNING] app.chains: [Robinhood Chain] Rejecting ROBINHOOD_WS_RPC_URL because it points to the sequencer feed (feed.mainnet.chain.robinhood.com) which does not support JSON-RPC eth_subscribe.
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Verified eth_chainId == 4663
+2026-10-22 20:40:32 [ERROR] app.subscriber: [Robinhood Chain] Chain ID mismatch on connect: expected 4663, got 1
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Starting in configured HTTP polling mode (interval=0.0s, batch_size=2)...
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Verified eth_chainId == 4663
+2026-10-22 20:40:32 [INFO] app.subscriber: 🟢 [Robinhood Chain] Polling mode active (chain_id=4663, interval=0.0s, batch_size=2)
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Subscriber stopped.
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Starting in configured HTTP polling mode (interval=0.0s, batch_size=2)...
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Verified eth_chainId == 4663
+2026-10-22 20:40:32 [INFO] app.subscriber: 🟢 [Robinhood Chain] Polling mode active (chain_id=4663, interval=0.0s, batch_size=2)
+2026-10-22 20:40:32 [INFO] app.subscriber: [Robinhood Chain] Subscriber stopped.
+2026-10-22 20:40:32 [WARNING] app.subscriber: [Robinhood Chain] WebSocket reconnect reason: handshake error (attempt 1/5) — RuntimeError: InvalidStatus: server rejected WebSocket connection: HTTP 400 at [REDACTED_RPC_URL]. Reconnecting in 1.0s...
+2026-10-22 20:40:32 [WARNING] app.subscriber: [Robinhood Chain] WebSocket reconnect reason: handshake error (attempt 2/5) — RuntimeError: InvalidStatus: server rejected WebSocket connection: HTTP 400 at [REDACTED_RPC_URL]. Reconnecting in 2.0s...
+2026-10-22 20:40:32 [WARNING] app.subscriber: [Robinhood Chain] WebSocket reconnect reason: handshake error (attempt 3/5) — RuntimeError: InvalidStatus: server rejected WebSocket connection: HTTP 400 at [REDACTED_RPC_URL]. Reconnecting in 4.0s...
+2026-10-22 20:40:32 [WARNING] app.subscriber: [Robinhood Chain] WebSocket reconnect reason: handshake error (attempt 4/5) — RuntimeError: InvalidStatus: server rejected WebSocket connection: HTTP 400 at [REDACTED_RPC_URL]. Reconnecting in 8.0s...
+2026-10-22 20:40:32 [WARNING] app.subscriber: ⚠️ [Robinhood Chain] WebSocket failed 5 consecutive reconnects (reason: handshake error — RuntimeError: InvalidStatus: server rejected WebSocket connection: HTTP 400 at [REDACTED_RPC_URL]). Falling back automatically from websocket to HTTP polling mode.
+2026-10-22 20:40:32 [WARNING] alertbot: Startup check: OPENSEA_API_KEY is ❌ missing — OpenSea v2 API collection/market lookups are disabled.
+2026-10-22 20:40:32 [WARNING] app.enrichment: OPENSEA_API_KEY is not configured — OpenSea v2 API lookups disabled on chain=ethereum
+2026-10-22 20:40:37 [WARNING] app.detector: contractURI() RPC call failed for 0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D: RuntimeError: RPC error
+2026-10-22 20:40:37 [WARNING] app.enrichment: OPENSEA_API_KEY is not configured — OpenSea v2 API lookups disabled on chain=ethereum
+2026-10-22 20:40:39 [WARNING] app.explorer: Etherscan V2 API HTTP failure (chain_id=8453, action=getsourcecode): HTTP status=403 body={"status":"0","message":"Invalid API Key"}
+2026-10-22 20:40:39 [WARNING] app.enrichment: Metadata contractURI fetch failed for URI ipfs://QmDeadCid/contract.json on Base: https://ipfs.io/ipfs/QmDeadCid/contract.json -> TimeoutError: gateway read timed out after 3.5s; https://dweb.link/ipfs/QmDeadCid/contract.json -> TimeoutError: gateway read timed out after 3.5s
+2026-10-22 20:40:40 [WARNING] app.explorer: Etherscan V2 API non-success response (chain_id=1, action=getcontractcreation): HTTP status=200 body={"status":"0","message":"No data found","result":null}
+2026-10-22 20:40:42 [WARNING] app.explorer: Etherscan V2 API non-success response (chain_id=1, action=getcontractcreation): HTTP status=200 body={"status":"0","message":"No data found","result":null}
+2026-10-22 20:40:43 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x2222222222222222222222222222222222222222 (20 unique minters in 300s)
+2026-10-22 20:40:43 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing alert for 0x2222222222222222222222222222222222222222: live-mint check status is ENDED (Simulation failed: Allowlist Gating (Not on allowlist))
+2026-10-22 20:40:43 [WARNING] app.chains: [Berachain] Pre-flight WebSocket eth_subscribe failed (Connection refused) — automatically switched to polling mode.
+2026-10-22 20:40:43 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x9999999999999999999999999999999999999999 (15 unique minters in 300s)
+2026-10-22 20:40:45 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x9999999999999999999999999999999999999999 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x9999999999999999999999999999999999999999 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:40:46 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:40:46 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:40:50 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+🚨 <b>HOT NFT MINT DETECTED</b> — <b>🆕 FRESH DEPLOY</b>
+
+🟢 <b>STATUS: LIVE</b> | <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+<b>Live Check:</b> <i>Open public mint verified via simulation (0.0m since last mint)</i>
+
+🏆 <b>Quality Score:</b> <b><code>15/100</code></b> | 🎯 <b>Alert Tier:</b> <b>Tier C 📝 (Log Only)</b>
+  • ❔ <b>Mature Minters (&gt;30d &amp; Nonce &gt;5):</b> <code>not checked</code>
+  • ❔ <b>Contract / Same-Funder Mint Share:</b> <code>not checked</code>
+  • ⚠️ <b>Total ETH Spent (Non-Owner Minters)</b> (<code>0/20</code>): 0.0000 ETH spent (&lt; 0.05 ETH)
+  • ❔ <b>Real Unique Minters (Funding Clustered):</b> <code>not checked</code>
+  • ✅ <b>Contract Age (Fresh Deploy)</b> (<code>+15/15</code>): Fresh deploy (17m old, ≤ 72h)
+🛡 <b>Risk Score:</b> <b>Low 🟢</b> (<code>15 pts</code>)
+  • ⚠️ <b>No Project Footprint</b> (<code>+15</code>): No contractURI, no tokenURI metadata, and no OpenSea data
+  • ✅ <b>Proxy / Upgradeable Contract:</b> Non-proxy contract
+  • ✅ <b>Velocity Quality &amp; Concentration:</b> Healthy distribution (Top-5 concentration: 33.5%, 1.0 mints/wallet)
+  • ✅ <b>Owner / Deployer is Top Minter:</b> Top minter is independent of contract owner/deployer
+  • ✅ <b>Owner / Deployer Self-Mints (&gt; 30%):</b> Owner/Deployer self-mints: 0 (0.0% ≤ 30%)
+  • ✅ <b>Honeypot Simulation (eth_call):</b> Simulated eth_call succeeded (setApprovalForAll(operator, true) succeeded)
+  • ❔ <b>Unverified Source:</b> <code>not checked</code>
+  • ❔ <b>Owner-Only Mint / Supply Cap:</b> <code>not checked</code>
+  • ❔ <b>Blacklist / Pause / Transfer Restrictions:</b> <code>not checked</code>
+  • ❔ <b>Mutable Base URI:</b> <code>not checked</code>
+  • ❔ <b>Deployer Wallet &lt; 7d:</b> <code>not checked</code>
+  • ❔ <b>Deployer Funding (Mixer / Fresh Wallet):</b> <code>not checked</code>
+
+⛓ <b>Chain:</b> <b>Ethereum</b> (Chain ID: <code>1</code>)
+🏷 <b>Collection:</b> <b></b> (<code></code>)
+📜 <b>Contract:</b> <a href="https://etherscan.io/address/0x9999999999999999999999999999999999999999"><code>0x9999999999999999999999999999999999999999</code></a>
+⏳ <b>Contract Age:</b> <code>17m old</code> (Deployed: <code>1970-01-01 02:30 UTC</code>, Block <code>#90</code>) — <b>🆕 FRESH DEPLOY</b>
+🧱 <b>Trigger Block:</b> <a href="https://etherscan.io/block/115"><code>#115</code></a>
+🔗 <b>Trigger Tx:</b> <a href="https://etherscan.io/tx/0xabababababababababababababababababababababababababababababababab"><code>0xabab...abab</code></a>
+💎 <b>Standard:</b> <code>ERC721</code>
+📦 <b>Supply:</b> <code>15</code> / Max: <code>1,000</code> (maxSupply())
+
+💰 <b>Mint &amp; Metadata Mechanics:</b>
+  • <b>Live-Mint Check:</b> 🟢 <code>LIVE</code> (Last mint: <code>0.0m</code> | Supply: <code>15 / 1,000</code> | Paused: <code>Active (Not paused)</code> | Simulation: <code>Succeeded</code>)
+  • <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+  • <b>Mint Function:</b> <code>mint()</code>
+  • <b>Mint Simulation:</b> ✅ <b>Succeeded</b> (1 qty via <code>mint()</code>)
+  • <b>Paused State:</b> ✅ Active (Not Paused) via paused()
+  • <b>Royalty (ERC-2981):</b> <code>unavailable</code>
+  • <b>Reveal Status:</b> ⚠️ Unrevealed (Identical static URI across tokens)
+  • <b>tokenURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>contractURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>Website:</b> <code>fetch failed</code>
+  • <b>Twitter:</b> <code>fetch failed</code>
+  • <b>Discord:</b> <code>fetch failed</code>
+  • <b>Telegram:</b> <code>fetch failed</code>
+
+📊 <b>Mint Velocity &amp; Concentration:</b>
+  • <b>Mints/Min (5m window):</b> <code>3.0</code>/min (<code>15</code> minters, <code>15</code> mints)
+  • <b>Owner/Deployer self-mints:</b> ✅ <code>0</code>
+  • <b>Top-5 Concentration:</b> ✅ <code>33.5%</code>
+    1. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000001">0x0000...0001</a>: <code>1</code> (<code>6.7%</code>)
+    2. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000002">0x0000...0002</a>: <code>1</code> (<code>6.7%</code>)
+    3. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000003">0x0000...0003</a>: <code>1</code> (<code>6.7%</code>)
+    4. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000004">0x0000...0004</a>: <code>1</code> (<code>6.7%</code>)
+    5. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000005">0x0000...0005</a>: <code>1</code> (<code>6.7%</code>)
+
+🔍 <b>Deployer &amp; Contract Security:</b>
+  • <b>Owner:</b> <code>unavailable</code>
+  • <b>Deployer:</b> <a href="https://etherscan.io/address/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045">0xd8dA...6045</a>
+  • <b>Deployer Age:</b> <code>unavailable</code>
+  • <b>Deployer Reputation:</b> ✅ <code>1 deployed | 0 reached ≥90% minted | 0 with &gt;50% owner-held supply</code>
+  • <b>Funding Source:</b> <code>unavailable</code>
+  • <b>Bytecode Template:</b> ℹ️ Unlabeled (<code>matched 1 contract</code>)
+  • <b>Other Deployer Contracts:</b> ✅ None across configured chains
+  • <b>Cross-Contract Funding:</b> ✅ None detected
+  • <b>Explorer Source (Etherscan):</b> <code>unavailable</code>
+  • <b>Proxy (EIP-1967):</b> ✅ Non-Proxy
+
+🛡 <b>ABI / Selector Risk Scan:</b>
+  • <b>Owner/Admin Mint:</b> <code>unavailable</code>
+  • <b>Blacklist:</b> <code>unavailable</code>
+  • <b>Pausable Transfers:</b> <code>unavailable</code>
+  • <b>Mutable BaseURI:</b> <code>unavailable</code>
+
+🌊 <b>OpenSea Market Data:</b>
+  • <b>OpenSea:</b> <a href="https://opensea.io/assets/ethereum/0x9999999999999999999999999999999999999999/15">Token #15</a> (<code>slug unavailable</code>)
+  • <b>Slug:</b> <code>unavailable</code>
+  • <b>Floor:</b> <code>unavailable</code> | <b>Listings:</b> <code>unavailable</code> | <b>24h Vol:</b> <code>unavailable</code>
+  • <b>Socials:</b> <code>fetch failed</code>
+
+🌐 <b>Links:</b>
+  • <b>Mint:</b> <a href="https://mint.fun/ethereum/0x9999999999999999999999999999999999999999">mint.fun</a> <code>(mint.fun)</code>
+  • <b>Marketplaces:</b> <a href="https://opensea.io/assets/ethereum/0x9999999999999999999999999999999999999999/15">OpenSea (#15)</a> | <a href="https://blur.io/collection/0x9999999999999999999999999999999999999999">Blur</a>
+
+🔗 <a href="https://etherscan.io/address/0x9999999999999999999999999999999999999999">Etherscan</a> | <a href="https://etherscan.io/address/0x9999999999999999999999999999999999999999#writeContract">Write Contract</a> | <a href="https://etherscan.io/tx/0xabababababababababababababababababababababababababababababababab">Trigger Tx</a> | <a href="https://opensea.io/assets/ethereum/0x9999999999999999999999999999999999999999/15">OpenSea</a>
+========================================
+2026-10-22 20:40:50 [INFO] app.pipeline: ✨ [Ethereum] Deployed NFT detected: 0xabCDeF0123456789AbcdEf0123456789aBCDEF01 (ERC721, Name=, Symbol=, Deployer=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045)
+2026-10-22 20:40:50 [INFO] app.pipeline: 🚫 [Ethereum] Rejected old contract 0x8888888888888888888888888888888888888888 | chain=ethereum | deployed=1970-01-15 19:33 UTC | age=8d 8h old (200.0h > max 72h) | reason=Contract age 8d 8h old (200.0h, deployed 1970-01-15 19:33 UTC) exceeds MAX_CONTRACT_AGE_HOURS (72h)
+2026-10-22 20:40:50 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x8888888888888888888888888888888888888888 (16 unique minters in 300s)
+2026-10-22 20:40:51 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x8888888888888888888888888888888888888888 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x8888888888888888888888888888888888888888 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:40:53 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:40:53 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:40:56 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+🚨 <b>HOT NFT MINT DETECTED</b> — <b>♻️ OLD CONTRACT SURGE</b>
+
+🟢 <b>STATUS: LIVE</b> | <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+<b>Live Check:</b> <i>Open public mint verified via simulation (0.0m since last mint)</i>
+
+🏆 <b>Quality Score:</b> <b><code>40/100</code></b> | 🎯 <b>Alert Tier:</b> <b>Tier C 📝 (Log Only)</b>
+  • ⚠️ <b>Mature Minters (&gt;30d &amp; Nonce &gt;5)</b> (<code>0/25</code>): Only 0.0% of checked minters meet age &amp; nonce (&lt; 30%)
+  • ✅ <b>Contract / Same-Funder Mint Share</b> (<code>+20/20</code>): 0.0% from contracts/repeated funder (≤ 25%)
+  • ⚠️ <b>Total ETH Spent (Non-Owner Minters)</b> (<code>0/20</code>): 0.0000 ETH spent (&lt; 0.05 ETH)
+  • ✅ <b>Real Unique Minters (Funding Clustered)</b> (<code>+20/20</code>): 16 clustered unique minters (≥ 10)
+  • ⚠️ <b>Contract Age (Fresh Deploy)</b> (<code>0/15</code>): Old contract (8d 8h old, &gt; 72h)
+🛡 <b>Risk Score:</b> <b>Low 🟢</b> (<code>15 pts</code>)
+  • ⚠️ <b>No Project Footprint</b> (<code>+15</code>): No contractURI, no tokenURI metadata, and no OpenSea data
+  • ✅ <b>Unverified Source:</b> Contract source code is verified on explorer
+  • ✅ <b>Proxy / Upgradeable Contract:</b> Non-proxy contract
+  • ✅ <b>Deployer Wallet &lt; 7d:</b> Deployer wallet age ≥ 7 days (8d 8h old)
+  • ✅ <b>Velocity Quality &amp; Concentration:</b> Healthy distribution (Top-5 concentration: 31.0%, 1.0 mints/wallet)
+  • ✅ <b>Owner / Deployer is Top Minter:</b> Top minter is independent of contract owner/deployer
+  • ✅ <b>Owner / Deployer Self-Mints (&gt; 30%):</b> Owner/Deployer self-mints: 0 (0.0% ≤ 30%)
+  • ✅ <b>Honeypot Simulation (eth_call):</b> Simulated eth_call succeeded (setApprovalForAll(operator, true) succeeded)
+  • ❔ <b>Owner-Only Mint / Supply Cap:</b> <code>not checked</code>
+  • ❔ <b>Blacklist / Pause / Transfer Restrictions:</b> <code>not checked</code>
+  • ❔ <b>Mutable Base URI:</b> <code>not checked</code>
+  • ❔ <b>Deployer Funding (Mixer / Fresh Wallet):</b> <code>not checked</code>
+
+⛓ <b>Chain:</b> <b>Ethereum</b> (Chain ID: <code>1</code>)
+🏷 <b>Collection:</b> <b></b> (<code></code>)
+📜 <b>Contract:</b> <a href="https://etherscan.io/address/0x8888888888888888888888888888888888888888"><code>0x8888888888888888888888888888888888888888</code></a>
+⏳ <b>Contract Age:</b> <code>8d 8h old</code> (Deployed: <code>1970-01-15 19:33 UTC</code>, Block <code>#500</code>) — <b>♻️ OLD CONTRACT SURGE</b>
+🧱 <b>Trigger Block:</b> <a href="https://etherscan.io/block/1016"><code>#1016</code></a>
+🔗 <b>Trigger Tx:</b> <a href="https://etherscan.io/tx/0xoldtx16"><code>0xoldtx16</code></a>
+💎 <b>Standard:</b> <code>ERC721</code>
+📦 <b>Supply:</b> <code>15</code> / Max: <code>1,000</code> (maxSupply())
+
+💰 <b>Mint &amp; Metadata Mechanics:</b>
+  • <b>Live-Mint Check:</b> 🟢 <code>LIVE</code> (Last mint: <code>0.0m</code> | Supply: <code>15 / 1,000</code> | Paused: <code>Active (Not paused)</code> | Simulation: <code>Succeeded</code>)
+  • <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+  • <b>Mint Function:</b> <code>mint()</code>
+  • <b>Mint Simulation:</b> ✅ <b>Succeeded</b> (1 qty via <code>mint()</code>)
+  • <b>Paused State:</b> ✅ Active (Not Paused) via paused()
+  • <b>Royalty (ERC-2981):</b> <code>unavailable</code>
+  • <b>Reveal Status:</b> ⚠️ Unrevealed (Identical static URI across tokens)
+  • <b>tokenURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>contractURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>Website:</b> <code>fetch failed</code>
+  • <b>Twitter:</b> <code>fetch failed</code>
+  • <b>Discord:</b> <code>fetch failed</code>
+  • <b>Telegram:</b> <code>fetch failed</code>
+
+📊 <b>Mint Velocity &amp; Concentration:</b>
+  • <b>Mints/Min (5m window):</b> <code>3.2</code>/min (<code>16</code> minters, <code>16</code> mints)
+  • <b>Owner/Deployer self-mints:</b> ✅ <code>0</code>
+  • <b>Top-5 Concentration:</b> ✅ <code>31.0%</code>
+    1. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000001">0x0000...0001</a>: <code>1</code> (<code>6.2%</code>)
+    2. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000002">0x0000...0002</a>: <code>1</code> (<code>6.2%</code>)
+    3. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000003">0x0000...0003</a>: <code>1</code> (<code>6.2%</code>)
+    4. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000004">0x0000...0004</a>: <code>1</code> (<code>6.2%</code>)
+    5. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000005">0x0000...0005</a>: <code>1</code> (<code>6.2%</code>)
+
+🔍 <b>Deployer &amp; Contract Security:</b>
+  • <b>Owner:</b> <code>unavailable</code>
+  • <b>Deployer:</b> <a href="https://etherscan.io/address/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045">0xd8dA...6045</a>
+  • <b>Deployer Age:</b> ✅ <code>8d 8h old (1 txs)</code>
+  • <b>Deployer Reputation:</b> ✅ <code>1 deployed | 0 reached ≥90% minted | 0 with &gt;50% owner-held supply</code>
+  • <b>Funding Source:</b> <code>unavailable</code>
+  • <b>Bytecode Template:</b> ℹ️ Unlabeled (<code>matched 1 contract</code>)
+  • <b>Other Deployer Contracts:</b> ✅ None across configured chains
+  • <b>Cross-Contract Funding:</b> ✅ None detected
+  • <b>Explorer Source (Etherscan):</b> ✅ Verified
+  • <b>Proxy (EIP-1967):</b> ✅ Non-Proxy
+
+🛡 <b>ABI / Selector Risk Scan:</b>
+  • <b>Owner/Admin Mint:</b> <code>unavailable</code>
+  • <b>Blacklist:</b> <code>unavailable</code>
+  • <b>Pausable Transfers:</b> <code>unavailable</code>
+  • <b>Mutable BaseURI:</b> <code>unavailable</code>
+
+🌊 <b>OpenSea Market Data:</b>
+  • <b>OpenSea:</b> <a href="https://opensea.io/assets/ethereum/0x8888888888888888888888888888888888888888/16">Token #16</a> (<code>slug unavailable</code>)
+  • <b>Slug:</b> <code>unavailable</code>
+  • <b>Floor:</b> <code>unavailable</code> | <b>Listings:</b> <code>unavailable</code> | <b>24h Vol:</b> <code>unavailable</code>
+  • <b>Socials:</b> <code>fetch failed</code>
+
+🌐 <b>Links:</b>
+  • <b>Mint:</b> <a href="https://mint.fun/ethereum/0x8888888888888888888888888888888888888888">mint.fun</a> <code>(mint.fun)</code>
+  • <b>Marketplaces:</b> <a href="https://opensea.io/assets/ethereum/0x8888888888888888888888888888888888888888/16">OpenSea (#16)</a> | <a href="https://blur.io/collection/0x8888888888888888888888888888888888888888">Blur</a>
+
+🔗 <a href="https://etherscan.io/address/0x8888888888888888888888888888888888888888">Etherscan</a> | <a href="https://etherscan.io/address/0x8888888888888888888888888888888888888888#writeContract">Write Contract</a> | <a href="https://etherscan.io/tx/0xoldtx16">Trigger Tx</a> | <a href="https://opensea.io/assets/ethereum/0x8888888888888888888888888888888888888888/16">OpenSea</a>
+========================================
+2026-10-22 20:40:56 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x7777777777777777777777777777777777777777 (15 unique minters in 300s)
+2026-10-22 20:40:57 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x7777777777777777777777777777777777777777 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x7777777777777777777777777777777777777777 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:40:58 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:40:58 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:01 [INFO] app.pipeline: ⏭ [Ethereum] Skipping alert for 0x7777777777777777777777777777777777777777: after excluding owner/deployer self-mints (12 self-mints), non-owner unique minters=14 (min=15), non-owner mints=14 (min=15)
+2026-10-22 20:41:01 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x7777777777777777777777777777777777777777 (15 unique minters in 300s)
+2026-10-22 20:41:01 [INFO] app.enrichment: Using SQLite cached enrichment for 0x7777777777777777777777777777777777777777 on Ethereum
+2026-10-22 20:41:01 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+🚨 <b>HOT NFT MINT DETECTED</b> — <b>🆕 FRESH DEPLOY</b>
+
+🟢 <b>STATUS: LIVE</b> | <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+<b>Live Check:</b> <i>Open public mint verified via simulation (0.0m since last mint)</i>
+
+🏆 <b>Quality Score:</b> <b><code>55/100</code></b> | 🎯 <b>Alert Tier:</b> <b>Tier C 📝 (Log Only)</b>
+  • ❔ <b>Mature Minters (&gt;30d &amp; Nonce &gt;5):</b> <code>not checked</code>
+  • ✅ <b>Contract / Same-Funder Mint Share</b> (<code>+20/20</code>): 0.0% from contracts/repeated funder (≤ 25%)
+  • ⚠️ <b>Total ETH Spent (Non-Owner Minters)</b> (<code>0/20</code>): 0.0000 ETH spent (&lt; 0.05 ETH)
+  • ✅ <b>Real Unique Minters (Funding Clustered)</b> (<code>+20/20</code>): 14 clustered unique minters (≥ 10)
+  • ✅ <b>Contract Age (Fresh Deploy)</b> (<code>+15/15</code>): Fresh deploy (1h old, ≤ 72h)
+🛡 <b>Risk Score:</b> <b>High 🔴</b> (<code>120 pts</code>)
+  • ⚠️ <b>Velocity Quality &amp; Concentration</b> (<code>+30</code>): Top-5 wallets hold 59.2% (&gt; 50%); Top wallet holds 44.4% (&gt; 25%)
+  • ⚠️ <b>Owner / Deployer is Top Minter</b> (<code>+35</code>): Contract owner or deployer is the #1 minter wallet
+  • ⚠️ <b>Owner / Deployer Self-Mints (&gt; 30%)</b> (<code>+40</code>): Owner/Deployer self-mints are 44.4% of total mints (12 self-mints &gt; 30%)
+  • ⚠️ <b>No Project Footprint</b> (<code>+15</code>): No contractURI, no tokenURI metadata, and no OpenSea data
+  • ✅ <b>Unverified Source:</b> Contract source code is verified on explorer
+  • ✅ <b>Proxy / Upgradeable Contract:</b> Non-proxy contract
+  • ✅ <b>Deployer Wallet &lt; 7d:</b> Deployer wallet age ≥ 7 days (30d 1h old)
+  • ✅ <b>Honeypot Simulation (eth_call):</b> Simulated eth_call succeeded (setApprovalForAll(operator, true) succeeded)
+  • ❔ <b>Owner-Only Mint / Supply Cap:</b> <code>not checked</code>
+  • ❔ <b>Blacklist / Pause / Transfer Restrictions:</b> <code>not checked</code>
+  • ❔ <b>Mutable Base URI:</b> <code>not checked</code>
+  • ❔ <b>Deployer Funding (Mixer / Fresh Wallet):</b> <code>not checked</code>
+
+⛓ <b>Chain:</b> <b>Ethereum</b> (Chain ID: <code>1</code>)
+🏷 <b>Collection:</b> <b></b> (<code></code>)
+📜 <b>Contract:</b> <a href="https://etherscan.io/address/0x7777777777777777777777777777777777777777"><code>0x7777777777777777777777777777777777777777</code></a>
+⏳ <b>Contract Age:</b> <code>1h old</code> (Deployed: <code>1970-01-24 02:33 UTC</code>, Block <code>#900</code>) — <b>🆕 FRESH DEPLOY</b>
+🧱 <b>Trigger Block:</b> <a href="https://etherscan.io/block/1015"><code>#1015</code></a>
+🔗 <b>Trigger Tx:</b> <a href="https://etherscan.io/tx/0xminter15"><code>0xmint...er15</code></a>
+💎 <b>Standard:</b> <code>ERC721</code>
+📦 <b>Supply:</b> <code>15</code> / Max: <code>1,000</code> (maxSupply())
+
+💰 <b>Mint &amp; Metadata Mechanics:</b>
+  • <b>Live-Mint Check:</b> 🟢 <code>LIVE</code> (Last mint: <code>0.0m</code> | Supply: <code>15 / 1,000</code> | Paused: <code>Active (Not paused)</code> | Simulation: <code>Succeeded</code>)
+  • <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+  • <b>Mint Function:</b> <code>mint()</code>
+  • <b>Mint Simulation:</b> ✅ <b>Succeeded</b> (1 qty via <code>mint()</code>)
+  • <b>Paused State:</b> ✅ Active (Not Paused) via paused()
+  • <b>Royalty (ERC-2981):</b> <code>unavailable</code>
+  • <b>Reveal Status:</b> ⚠️ Unrevealed (Identical static URI across tokens)
+  • <b>tokenURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>contractURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>Website:</b> <code>fetch failed</code>
+  • <b>Twitter:</b> <code>fetch failed</code>
+  • <b>Discord:</b> <code>fetch failed</code>
+  • <b>Telegram:</b> <code>fetch failed</code>
+
+📊 <b>Mint Velocity &amp; Concentration:</b>
+  • <b>Mints/Min (5m window):</b> <code>3.0</code>/min (<code>15</code> minters, <code>15</code> mints)
+  • <b>Owner/Deployer self-mints:</b> ⚠️ <code>12</code> (<code>44.4%</code> of total)
+  • <b>Top-5 Concentration:</b> ⚠️ <code>59.2%</code>
+    1. <a href="https://etherscan.io/address/0xd8da6bf26964af9d7eed9e03e53415d37aa96045">0xd8da...6045</a>: <code>12</code> (<code>44.4%</code>) ⚠️ <b>(Owner/Deployer)</b>
+    2. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000001">0x0000...0001</a>: <code>1</code> (<code>3.7%</code>)
+    3. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000002">0x0000...0002</a>: <code>1</code> (<code>3.7%</code>)
+    4. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000003">0x0000...0003</a>: <code>1</code> (<code>3.7%</code>)
+    5. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000004">0x0000...0004</a>: <code>1</code> (<code>3.7%</code>)
+
+🔍 <b>Deployer &amp; Contract Security:</b>
+  • <b>Owner:</b> <code>unavailable</code>
+  • <b>Deployer:</b> <a href="https://etherscan.io/address/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045">0xd8dA...6045</a>
+  • <b>Deployer Age:</b> ✅ <code>30d 1h old (5 txs)</code>
+  • <b>Deployer Reputation:</b> ✅ <code>1 deployed | 0 reached ≥90% minted | 0 with &gt;50% owner-held supply</code>
+  • <b>Funding Source:</b> <code>unavailable</code>
+  • <b>Bytecode Template:</b> ℹ️ Unlabeled (<code>matched 1 contract</code>)
+  • <b>Other Deployer Contracts:</b> ✅ None across configured chains
+  • <b>Cross-Contract Funding:</b> ✅ None detected
+  • <b>Explorer Source (Etherscan):</b> ✅ Verified
+  • <b>Proxy (EIP-1967):</b> ✅ Non-Proxy
+
+🛡 <b>ABI / Selector Risk Scan:</b>
+  • <b>Owner/Admin Mint:</b> <code>unavailable</code>
+  • <b>Blacklist:</b> <code>unavailable</code>
+  • <b>Pausable Transfers:</b> <code>unavailable</code>
+  • <b>Mutable BaseURI:</b> <code>unavailable</code>
+
+🌊 <b>OpenSea Market Data:</b>
+  • <b>OpenSea:</b> <a href="https://opensea.io/assets/ethereum/0x7777777777777777777777777777777777777777/16">Token #16</a> (<code>slug unavailable</code>)
+  • <b>Slug:</b> <code>unavailable</code>
+  • <b>Floor:</b> <code>unavailable</code> | <b>Listings:</b> <code>unavailable</code> | <b>24h Vol:</b> <code>unavailable</code>
+  • <b>Socials:</b> <code>fetch failed</code>
+
+🌐 <b>Links:</b>
+  • <b>Mint:</b> <a href="https://mint.fun/ethereum/0x7777777777777777777777777777777777777777">mint.fun</a> <code>(mint.fun)</code>
+  • <b>Marketplaces:</b> <a href="https://opensea.io/assets/ethereum/0x7777777777777777777777777777777777777777/15">OpenSea (#15)</a> | <a href="https://blur.io/collection/0x7777777777777777777777777777777777777777">Blur</a>
+
+🔗 <a href="https://etherscan.io/address/0x7777777777777777777777777777777777777777">Etherscan</a> | <a href="https://etherscan.io/address/0x7777777777777777777777777777777777777777#writeContract">Write Contract</a> | <a href="https://etherscan.io/tx/0xminter15">Trigger Tx</a> | <a href="https://opensea.io/assets/ethereum/0x7777777777777777777777777777777777777777/16">OpenSea</a>
+========================================
+2026-10-22 20:41:01 [WARNING] app.pipeline: 🚫 [Ethereum] Rejected contract 0x4444444444444444444444444444444444444444 | chain=ethereum | deployed=unknown | age=rejected_unknown_age | reason=explorer contract-creation endpoint returned no data; eth_getCode binary search failed: RuntimeError: missing trie node (non-archive RPC); factory trace call returned no creation block
+2026-10-22 20:41:01 [INFO] app.pipeline: 🚫 [Ethereum] Suppressing alert for cached rejected_unknown_age contract 0x4444444444444444444444444444444444444444
+2026-10-22 20:41:01 [INFO] app.replay: 🎬 Starting block replay from block 600 to 600...
+2026-10-22 20:41:01 [INFO] app.replay: 🏁 Block replay finished! Processed 1 blocks, 0 new deployments, 15 mints.
+2026-10-22 20:41:02 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x6666666666666666666666666666666666666666 (15 unique minters in 300s)
+2026-10-22 20:41:02 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x6666666666666666666666666666666666666666 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x6666666666666666666666666666666666666666 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:41:03 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:03 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:06 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing alert for 0x6666666666666666666666666666666666666666: live-mint check status is SOLD OUT (Total supply (1) reached max supply (1))
+2026-10-22 20:41:06 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (15 unique minters in 300s)
+2026-10-22 20:41:07 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x1212121212121212121212121212121212121212 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x1212121212121212121212121212121212121212 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:41:08 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:08 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:11 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing duplicate alert for 0x1212121212121212121212121212121212121212: already alerted once (REALERT_AFTER_HOURS=0)
+2026-10-22 20:41:11 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (15 unique minters in 300s)
+2026-10-22 20:41:12 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x1212121212121212121212121212121212121212 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x1212121212121212121212121212121212121212 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:41:12 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:12 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:13 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 15, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (16 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 16, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (17 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 17, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (18 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 18, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (19 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 19, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (20 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 20, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (21 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 21, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (22 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 22, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (23 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 23, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (24 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 24, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (25 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 25, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (26 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 26, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (27 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 27, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (28 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 28, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (29 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: ⏭ [Ethereum] Suppressing re-alert for 0x1212121212121212121212121212121212121212: no meaningful change (minters 15 -> 29, sold_out=False)
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x1212121212121212121212121212121212121212 (30 unique minters in 300s)
+2026-10-22 20:41:14 [INFO] app.enrichment: Using SQLite cached enrichment for 0x1212121212121212121212121212121212121212 on Ethereum
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚫 [Ethereum] Rejected old contract 0xABaBaBaBABabABabAbAbABAbABabababaBaBABaB | chain=ethereum | deployed=1970-01-29 11:20 UTC | age=6d 6h old (150.0h > max 72h) | reason=Contract age 6d 6h old (150.0h, deployed 1970-01-29 11:20 UTC) exceeds MAX_CONTRACT_AGE_HOURS (72h)
+2026-10-22 20:41:14 [INFO] app.replay: 🎬 Starting block replay from block 100 to 102...
+2026-10-22 20:41:14 [INFO] app.pipeline: 🚀 [Ethereum] ENRICHING & ALERTING: Contract 0x3333333333333333333333333333333333333333 (15 unique minters in 300s)
+2026-10-22 20:41:15 [WARNING] app.enrichment: OpenSea v2 contract lookup failed (0x3333333333333333333333333333333333333333 on ethereum): HTTP status=404 body={
+  "errors" : [ "Contract with address 0x3333333333333333333333333333333333333333 not found on chain ChainIdentifier(chainId=1, chainArch=EVM)" ]
+}
+2026-10-22 20:41:15 [WARNING] app.enrichment: Metadata contractURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:15 [WARNING] app.enrichment: Metadata tokenURI fetch failed: Unsupported or invalid metadata URI: 
+2026-10-22 20:41:19 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+🚨 <b>HOT NFT MINT DETECTED</b> — <b>🆕 FRESH DEPLOY</b>
+
+🟢 <b>STATUS: LIVE</b> | <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+<b>Live Check:</b> <i>Open public mint verified via simulation (0.0m since last mint)</i>
+
+🏆 <b>Quality Score:</b> <b><code>15/100</code></b> | 🎯 <b>Alert Tier:</b> <b>Tier C 📝 (Log Only)</b>
+  • ❔ <b>Mature Minters (&gt;30d &amp; Nonce &gt;5):</b> <code>not checked</code>
+  • ❔ <b>Contract / Same-Funder Mint Share:</b> <code>not checked</code>
+  • ⚠️ <b>Total ETH Spent (Non-Owner Minters)</b> (<code>0/20</code>): 0.0000 ETH spent (&lt; 0.05 ETH)
+  • ❔ <b>Real Unique Minters (Funding Clustered):</b> <code>not checked</code>
+  • ✅ <b>Contract Age (Fresh Deploy)</b> (<code>+15/15</code>): Fresh deploy (10m old, ≤ 72h)
+🛡 <b>Risk Score:</b> <b>Low 🟢</b> (<code>15 pts</code>)
+  • ⚠️ <b>No Project Footprint</b> (<code>+15</code>): No contractURI, no tokenURI metadata, and no OpenSea data
+  • ✅ <b>Proxy / Upgradeable Contract:</b> Non-proxy contract
+  • ✅ <b>Velocity Quality &amp; Concentration:</b> Healthy distribution (Top-5 concentration: 33.5%, 1.0 mints/wallet)
+  • ✅ <b>Owner / Deployer is Top Minter:</b> Top minter is independent of contract owner/deployer
+  • ✅ <b>Owner / Deployer Self-Mints (&gt; 30%):</b> Owner/Deployer self-mints: 0 (0.0% ≤ 30%)
+  • ✅ <b>Honeypot Simulation (eth_call):</b> Simulated eth_call succeeded (setApprovalForAll(operator, true) succeeded)
+  • ❔ <b>Unverified Source:</b> <code>not checked</code>
+  • ❔ <b>Owner-Only Mint / Supply Cap:</b> <code>not checked</code>
+  • ❔ <b>Blacklist / Pause / Transfer Restrictions:</b> <code>not checked</code>
+  • ❔ <b>Mutable Base URI:</b> <code>not checked</code>
+  • ❔ <b>Deployer Wallet &lt; 7d:</b> <code>not checked</code>
+  • ❔ <b>Deployer Funding (Mixer / Fresh Wallet):</b> <code>not checked</code>
+
+⛓ <b>Chain:</b> <b>Ethereum</b> (Chain ID: <code>1</code>)
+🏷 <b>Collection:</b> <b></b> (<code></code>)
+📜 <b>Contract:</b> <a href="https://etherscan.io/address/0x3333333333333333333333333333333333333333"><code>0x3333333333333333333333333333333333333333</code></a>
+⏳ <b>Contract Age:</b> <code>10m old</code> (Deployed: <code>2021-01-14 08:15 UTC</code>, Block <code>#95</code>) — <b>🆕 FRESH DEPLOY</b>
+🧱 <b>Trigger Block:</b> <a href="https://etherscan.io/block/102"><code>#102</code></a>
+🔗 <b>Trigger Tx:</b> <a href="https://etherscan.io/tx/0xtx11"><code>0xtx11</code></a>
+💎 <b>Standard:</b> <code>ERC721</code>
+📦 <b>Supply:</b> <code>15</code> / Max: <code>1,000</code> (maxSupply())
+
+💰 <b>Mint &amp; Metadata Mechanics:</b>
+  • <b>Live-Mint Check:</b> 🟢 <code>LIVE</code> (Last mint: <code>0.0m</code> | Supply: <code>15 / 1,000</code> | Paused: <code>Active (Not paused)</code> | Simulation: <code>Succeeded</code>)
+  • <b>Mint Price:</b> <code>0 ETH (Free) (tx) | 0.000000 ETH (price())</code>
+  • <b>Mint Function:</b> <code>mint()</code>
+  • <b>Mint Simulation:</b> ✅ <b>Succeeded</b> (1 qty via <code>mint()</code>)
+  • <b>Paused State:</b> ✅ Active (Not Paused) via paused()
+  • <b>Royalty (ERC-2981):</b> <code>unavailable</code>
+  • <b>Reveal Status:</b> ⚠️ Unrevealed (Identical static URI across tokens)
+  • <b>tokenURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>contractURI:</b> <code></code> (<code>fetch failed</code>)
+  • <b>Website:</b> <code>fetch failed</code>
+  • <b>Twitter:</b> <code>fetch failed</code>
+  • <b>Discord:</b> <code>fetch failed</code>
+  • <b>Telegram:</b> <code>fetch failed</code>
+
+📊 <b>Mint Velocity &amp; Concentration:</b>
+  • <b>Mints/Min (5m window):</b> <code>3.0</code>/min (<code>15</code> minters, <code>15</code> mints)
+  • <b>Owner/Deployer self-mints:</b> ✅ <code>0</code>
+  • <b>Top-5 Concentration:</b> ✅ <code>33.5%</code>
+    1. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000001">0x0000...0001</a>: <code>1</code> (<code>6.7%</code>)
+    2. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000002">0x0000...0002</a>: <code>1</code> (<code>6.7%</code>)
+    3. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000003">0x0000...0003</a>: <code>1</code> (<code>6.7%</code>)
+    4. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000004">0x0000...0004</a>: <code>1</code> (<code>6.7%</code>)
+    5. <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000005">0x0000...0005</a>: <code>1</code> (<code>6.7%</code>)
+
+🔍 <b>Deployer &amp; Contract Security:</b>
+  • <b>Owner:</b> <code>unavailable</code>
+  • <b>Deployer:</b> <a href="https://etherscan.io/address/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045">0xd8dA...6045</a>
+  • <b>Deployer Age:</b> <code>unavailable</code>
+  • <b>Deployer Reputation:</b> ✅ <code>1 deployed | 0 reached ≥90% minted | 0 with &gt;50% owner-held supply</code>
+  • <b>Funding Source:</b> <code>unavailable</code>
+  • <b>Bytecode Template:</b> ℹ️ Unlabeled (<code>matched 1 contract</code>)
+  • <b>Other Deployer Contracts:</b> ✅ None across configured chains
+  • <b>Cross-Contract Funding:</b> ✅ None detected
+  • <b>Explorer Source (Etherscan):</b> <code>unavailable</code>
+  • <b>Proxy (EIP-1967):</b> ✅ Non-Proxy
+
+🛡 <b>ABI / Selector Risk Scan:</b>
+  • <b>Owner/Admin Mint:</b> <code>unavailable</code>
+  • <b>Blacklist:</b> <code>unavailable</code>
+  • <b>Pausable Transfers:</b> <code>unavailable</code>
+  • <b>Mutable BaseURI:</b> <code>unavailable</code>
+
+🌊 <b>OpenSea Market Data:</b>
+  • <b>OpenSea:</b> <a href="https://opensea.io/assets/ethereum/0x3333333333333333333333333333333333333333/11">Token #11</a> (<code>slug unavailable</code>)
+  • <b>Slug:</b> <code>unavailable</code>
+  • <b>Floor:</b> <code>unavailable</code> | <b>Listings:</b> <code>unavailable</code> | <b>24h Vol:</b> <code>unavailable</code>
+  • <b>Socials:</b> <code>fetch failed</code>
+
+🌐 <b>Links:</b>
+  • <b>Mint:</b> <a href="https://mint.fun/ethereum/0x3333333333333333333333333333333333333333">mint.fun</a> <code>(mint.fun)</code>
+  • <b>Marketplaces:</b> <a href="https://opensea.io/assets/ethereum/0x3333333333333333333333333333333333333333/11">OpenSea (#11)</a> | <a href="https://blur.io/collection/0x3333333333333333333333333333333333333333">Blur</a>
+
+🔗 <a href="https://etherscan.io/address/0x3333333333333333333333333333333333333333">Etherscan</a> | <a href="https://etherscan.io/address/0x3333333333333333333333333333333333333333#writeContract">Write Contract</a> | <a href="https://etherscan.io/tx/0xtx11">Trigger Tx</a> | <a href="https://opensea.io/assets/ethereum/0x3333333333333333333333333333333333333333/11">OpenSea</a>
+========================================
+2026-10-22 20:41:19 [INFO] app.replay: 🏁 Block replay finished! Processed 3 blocks, 0 new deployments, 16 mints.
+2026-10-22 20:41:19 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+<b>Test Alert</b>
+========================================
+2026-10-22 20:41:19 [WARNING] app.telegram: Telegram bot token missing and SIMULATION_MODE=false. Alert dropped.
+2026-10-22 20:41:19 [INFO] app.telegram: === [SIMULATION MODE TELEGRAM ALERT] ===
+🏷 <b>Bytecode Template Labeled:</b>
+  • <b>Contract:</b> <code>0x1234567890123456789012345678901234567890</code>
+  • <b>Template SHA-256:</b> <code>855c35c5ab9aadc20648768fbc8c54816b0aca206ef873686ccec88e5f419539</code>
+  • <b>Label:</b> <b>SuspectedDrainer</b>
+  • <b>Risk Flag:</b> ⚠️ <b>Scam</b>
+  • <b>Matching Contracts:</b> <code>1</code>
+========================================
+2026-10-22 20:41:19 [INFO] aiohttp.access: 127.0.0.1 [22/Oct/2026:20:41:19 -0700] "GET / HTTP/1.1" 200 239 "-" "Python/3.12 aiohttp/3.14.4"
+2026-10-22 20:41:19 [INFO] aiohttp.access: 127.0.0.1 [22/Oct/2026:20:41:19 -0700] "POST /api/filter-wallets HTTP/1.1" 200 1780 "-" "Python/3.12 aiohttp/3.14.4"
+2026-10-22 20:41:19 [INFO] aiohttp.access: 127.0.0.1 [22/Oct/2026:20:41:19 -0700] "POST /api/export-csv HTTP/1.1" 200 439 "-" "Python/3.12 aiohttp/3.14.4"
+2026-10-22 20:41:19 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:41:19 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:41:19 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-22 20:41:19 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-22 20:41:19 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-22 20:41:19 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-22 20:41:19 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)
+2026-10-24 06:06:22 [WARNING] alertbot: Startup check: OPENSEA_API_KEY is ❌ missing — OpenSea v2 API collection/market lookups are disabled.
+2026-10-24 06:06:46 [WARNING] alertbot: Startup check: OPENSEA_API_KEY is ❌ missing — OpenSea v2 API collection/market lookups are disabled.
+2026-10-24 06:07:14 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-24 06:07:14 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-24 06:07:14 [WARNING] alertbot.watchdog: [Base] Rate limit (429) on Alchemy RPC: HTTP 429: Too Many Requests
+2026-10-24 06:07:14 [ERROR] alertbot.watchdog: [Ethereum] API key error on Infura (HTTP 401): Unauthorized access using https://mainnet.infura.io/v3/[REDACTED_SECRET]
+2026-10-24 06:07:14 [WARNING] alertbot.watchdog: [Optimism] Chain down for 145s: Connection reset by peer
+2026-10-24 06:07:14 [WARNING] alertbot.watchdog: [Arbitrum] Ingestion lag high (150 blocks for 75s)
+2026-10-24 06:07:14 [INFO] alertbot.watchdog: Local HTTP healthcheck endpoint active on port :8999 (/health)

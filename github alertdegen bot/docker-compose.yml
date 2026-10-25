@@ -1,0 +1,28 @@
+services:
+  alertbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: evm-nft-alertbot:latest
+    container_name: evm-nft-alertbot
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    volumes:
+      # Persistent SQLite database and state
+      - ./data:/app/data
+      # Rotating application log files
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

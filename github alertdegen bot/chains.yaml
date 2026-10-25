@@ -1,0 +1,534 @@
+# Multi-Chain Configuration for EVM NFT Mint Velocity Radar & Alert Bot
+# Each chain runs an isolated async WebSocket log listener with independent
+# reconnect backoff, confirmation depth, explorer adapter, and alert thresholds.
+
+chains:
+  ethereum:
+    name: "Ethereum"
+    chain_id: 1
+    mode: "websocket"
+    ws_rpc_env: "ETH_WS_RPC_URL"
+    ws_rpc_default: "wss://ethereum-rpc.publicnode.com"
+    http_rpc_url: "https://ethereum-rpc.publicnode.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Etherscan"
+    explorer_base_url: "https://etherscan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan"
+    explorer_url: "https://etherscan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: "https://eth.blockscout.com"
+    opensea_chain_slug: "ethereum"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 50
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 60
+
+  base:
+    name: "Base"
+    chain_id: 8453
+    mode: "websocket"
+    ws_rpc_env: "BASE_WS_RPC_URL"
+    ws_rpc_default: "wss://base-rpc.publicnode.com"
+    http_rpc_url: "https://base-rpc.publicnode.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Basescan"
+    explorer_base_url: "https://basescan.org"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan"
+    explorer_url: "https://basescan.org"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: "https://base.blockscout.com"
+    opensea_chain_slug: "base"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 50
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 30
+
+  arbitrum:
+    name: "Arbitrum One"
+    chain_id: 42161
+    mode: "websocket"
+    ws_rpc_env: "ARBITRUM_WS_RPC_URL"
+    ws_rpc_default: "wss://arbitrum-one-rpc.publicnode.com"
+    http_rpc_url: "https://arbitrum-one-rpc.publicnode.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Arbiscan"
+    explorer_base_url: "https://arbiscan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan"
+    explorer_url: "https://arbiscan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: "https://arbitrum.blockscout.com"
+    opensea_chain_slug: "arbitrum"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 50
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 30
+
+  optimism:
+    name: "Optimism"
+    chain_id: 10
+    mode: "websocket"
+    ws_rpc_env: "OPTIMISM_WS_RPC_URL"
+    ws_rpc_default: "wss://optimism-rpc.publicnode.com"
+    http_rpc_url: "https://optimism-rpc.publicnode.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Optimistic Etherscan"
+    explorer_base_url: "https://optimistic.etherscan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan"
+    explorer_url: "https://optimistic.etherscan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: "https://optimism.blockscout.com"
+    opensea_chain_slug: "optimism"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 50
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 30
+
+  polygon:
+    name: "Polygon"
+    chain_id: 137
+    mode: "websocket"
+    ws_rpc_env: "POLYGON_WS_RPC_URL"
+    ws_rpc_default: "wss://polygon-bor-rpc.publicnode.com"
+    http_rpc_url: "https://polygon-bor-rpc.publicnode.com"
+    native_token_symbol: "POL"
+    explorer_name: "Polygonscan"
+    explorer_base_url: "https://polygonscan.com"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan"
+    explorer_url: "https://polygonscan.com"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: "https://polygon.blockscout.com"
+    opensea_chain_slug: "matic"
+    confirmation_depth: 2
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 30
+
+  robinhood:
+    # NOTE: Must be a JSON-RPC endpoint supporting eth_subscribe / eth_getLogs,
+    # NEVER the Arbitrum Nitro sequencer feed (feed.mainnet.chain.robinhood.com).
+    # Automatically falls back from websocket to polling after 5 failed reconnects.
+    name: "Robinhood Chain"
+    chain_id: 4663
+    enabled: true
+    mode: "polling"
+    ws_rpc_env: "ROBINHOOD_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.mainnet.chain.robinhood.com"
+    http_rpc_url: "https://rpc.mainnet.chain.robinhood.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Robinhood Chain Blockscout"
+    explorer_base_url: "https://robinhoodchain.blockscout.com"
+    explorer_api_type: "blockscout"
+    explorer_family: "blockscout"
+    explorer_type: "blockscout"
+    explorer_url: "https://robinhoodchain.blockscout.com"
+    explorer_api_base_url: "https://robinhoodchain.blockscout.com"
+    explorer_api_key_env: "ROBINHOOD_EXPLORER_API_KEY"
+    blockscout_fallback_url: "https://robinhoodchain.blockscout.com"
+    opensea_chain_slug: null
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 50
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+    watchdog_timeout_seconds: 30
+
+  hyperevm:
+    # HyperEVM (Chain ID: 999)
+    # Docs: Hyperliquid EVM Docs (https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/evm)
+    # RPC: Alchemy Hyperliquid Mainnet
+    # Explorer: https://hypurrscan.io (Etherscan V2 supported on free tier with chainid=999)
+    # Mode: polling
+    name: "HyperEVM"
+    chain_id: 999
+    enabled: false
+    mode: "polling"
+    ws_rpc_env: "HYPEREVM_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.hyperliquid.xyz/evm"
+    http_rpc_env: "HYPEREVM_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc.hyperliquid.xyz/evm"
+    native_token_symbol: "HYPE"
+    explorer_name: "HyperEVMScan"
+    explorer_base_url: "https://hyperevmscan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://hyperevmscan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "hyperevm"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  sei:
+    # Sei Network EVM (Chain ID: 1329)
+    # Docs: Sei Official EVM Docs (https://docs.sei.io/evm/basics)
+    # RPC: Alchemy Sei Mainnet
+    # Explorer: https://seitrace.com (Etherscan V2 supported on free tier with chainid=1329)
+    # Mode: websocket
+    name: "Sei"
+    chain_id: 1329
+    enabled: false
+    mode: "websocket"
+    ws_rpc_env: "SEI_WS_RPC_URL"
+    ws_rpc_default: "wss://evm-ws.sei-apis.com"
+    http_rpc_env: "SEI_HTTP_RPC_URL"
+    http_rpc_url: "https://evm-rpc.sei-apis.com"
+    native_token_symbol: "SEI"
+    explorer_name: "Seiscan"
+    explorer_base_url: "https://seiscan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://seiscan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "sei"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  berachain:
+    # Berachain Mainnet (Chain ID: 80094)
+    # Docs: Berachain Official Developer Docs (https://docs.berachain.com/developers)
+    # RPC: Alchemy Berachain Mainnet
+    # Explorer: https://berascan.com (Etherscan V2 supported on free tier with chainid=80094)
+    # Mode: websocket
+    name: "Berachain"
+    chain_id: 80094
+    enabled: false
+    mode: "websocket"
+    ws_rpc_env: "BERACHAIN_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.berachain.com"
+    http_rpc_env: "BERACHAIN_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc.berachain.com"
+    native_token_symbol: "BERA"
+    explorer_name: "Berascan"
+    explorer_base_url: "https://berascan.com"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://berascan.com"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "bera_chain"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.5
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  apechain:
+    # ApeChain (Chain ID: 33139)
+    # Docs: ApeChain Developer Docs (https://docs.apechain.com)
+    # RPC: Alchemy Apechain Mainnet
+    # Explorer: https://apescan.io (Etherscan V2 supported on free tier with chainid=33139)
+    # Mode: websocket
+    name: "ApeChain"
+    chain_id: 33139
+    enabled: false
+    mode: "websocket"
+    ws_rpc_env: "APECHAIN_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.apechain.com/ws"
+    http_rpc_env: "APECHAIN_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc.apechain.com/http"
+    native_token_symbol: "APE"
+    explorer_name: "Apescan"
+    explorer_base_url: "https://apescan.io"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://apescan.io"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "ape_chain"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  ink:
+    # Ink on Chain (Chain ID: 57073)
+    # Docs: Ink Documentation (https://docs.inkonchain.com)
+    # RPC: Alchemy Ink Mainnet
+    # Explorer: https://explorer.inkonchain.com (Blockscout API)
+    # Mode: polling
+    name: "Ink"
+    chain_id: 57073
+    enabled: false
+    mode: "polling"
+    ws_rpc_env: "INK_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc-gel.inkonchain.com"
+    http_rpc_env: "INK_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc-gel.inkonchain.com"
+    native_token_symbol: "ETH"
+    explorer_name: "Ink Explorer"
+    explorer_base_url: "https://explorer.inkonchain.com"
+    explorer_api_type: "blockscout"
+    explorer_family: "blockscout"
+    explorer_type: "blockscout"
+    explorer_url: "https://explorer.inkonchain.com"
+    explorer_api_base_url: "https://explorer.inkonchain.com"
+    explorer_api_key_env: null
+    blockscout_fallback_url: "https://explorer.inkonchain.com"
+    opensea_chain_slug: "ink"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  abstract:
+    # Abstract (Chain ID: 2741)
+    # Docs: Abstract Developer Docs (https://docs.abs.xyz)
+    # RPC: Alchemy Abstract Mainnet
+    # Explorer: https://abscan.org (Etherscan V2 supported on free tier with chainid=2741)
+    # Note: Built on ZKsync EraVM; deployer detection resolves via ContractDeployer (0x8006)
+    # Mode: polling
+    name: "Abstract"
+    chain_id: 2741
+    enabled: false
+    mode: "polling"
+    ws_rpc_env: "ABSTRACT_WS_RPC_URL"
+    ws_rpc_default: "wss://api.mainnet.abs.xyz/ws"
+    http_rpc_env: "ABSTRACT_HTTP_RPC_URL"
+    http_rpc_url: "https://api.mainnet.abs.xyz"
+    native_token_symbol: "ETH"
+    explorer_name: "Abscan"
+    explorer_base_url: "https://abscan.org"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://abscan.org"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "abstract"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  monad:
+    # Monad (Chain ID: 143)
+    # Docs: Monad Developer Docs (https://docs.monad.xyz)
+    # RPC: Alchemy Monad Mainnet
+    # Explorer: https://monadscan.xyz (Etherscan V2 supported on free tier with chainid=143)
+    # Mode: websocket
+    name: "Monad"
+    chain_id: 143
+    enabled: false
+    mode: "websocket"
+    ws_rpc_env: "MONAD_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.monad.xyz"
+    http_rpc_env: "MONAD_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc.monad.xyz"
+    native_token_symbol: "MON"
+    explorer_name: "MonadScan"
+    explorer_base_url: "https://monadscan.com"
+    explorer_api_type: "etherscan_v2"
+    explorer_family: "etherscan"
+    explorer_type: "etherscan_v2"
+    explorer_url: "https://monadscan.com"
+    explorer_api_base_url: "https://api.etherscan.io/v2/api"
+    explorer_api_key_env: "ETHERSCAN_API_KEY"
+    blockscout_fallback_url: null
+    opensea_chain_slug: "monad"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 5.0
+    slowing_mint_max_minutes: 15.0
+
+  megaeth:
+    # MegaETH (Chain ID: 4326)
+    # Docs: MegaETH Developer Docs (https://docs.megaeth.com)
+    # RPC: Alchemy MegaETH Mainnet
+    # Explorer: https://megaeth.blockscout.com (Etherscan V2 supported on free tier with chainid=4326)
+    # Mode: websocket
+    name: "MegaETH"
+    chain_id: 4326
+    enabled: false
+    mode: "websocket"
+    ws_rpc_env: "MEGAETH_WS_RPC_URL"
+    ws_rpc_default: "wss://mainnet.megaeth.com/rpc"
+    http_rpc_env: "MEGAETH_HTTP_RPC_URL"
+    http_rpc_url: "https://mainnet.megaeth.com/rpc"
+    native_token_symbol: "ETH"
+    explorer_name: "MegaETH Blockscout"
+    explorer_base_url: "https://megaeth.blockscout.com"
+    explorer_api_type: "blockscout"
+    explorer_family: "blockscout"
+    explorer_type: "blockscout"
+    explorer_url: "https://megaeth.blockscout.com"
+    explorer_api_base_url: "https://megaeth.blockscout.com"
+    explorer_api_key_env: null
+    blockscout_fallback_url: "https://megaeth.blockscout.com"
+    opensea_chain_slug: "megaeth"
+    confirmation_depth: 1
+    poll_interval_seconds: 1.5
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 5.0
+    slowing_mint_max_minutes: 15.0
+
+  arc:
+    # Arc Network (Chain ID: 5042)
+    # Docs: Arc Network Docs (https://docs.arc.io)
+    # RPC: Alchemy Arc Mainnet
+    # Explorer: https://explorer.arc.io (Blockscout API; Etherscan V2 requires paid tier)
+    # Mode: polling (switched to polling: WebSocket handshake returns HTTP 403 on current Alchemy app configuration)
+    name: "Arc"
+    chain_id: 5042
+    enabled: false
+    mode: "polling"
+    ws_rpc_env: "ARC_WS_RPC_URL"
+    ws_rpc_default: "wss://rpc.mainnet.arc.io"
+    http_rpc_env: "ARC_HTTP_RPC_URL"
+    http_rpc_url: "https://rpc.mainnet.arc.io"
+    native_token_symbol: "USDC"
+    native_token_decimals: 18
+    explorer_name: "Arc Explorer"
+    explorer_base_url: "https://explorer.arc.io"
+    explorer_api_type: "blockscout"
+    explorer_family: "blockscout"
+    explorer_type: "blockscout"
+    explorer_url: "https://explorer.arc.io"
+    explorer_api_base_url: "https://explorer.arc.io"
+    explorer_api_key_env: null
+    blockscout_fallback_url: "https://explorer.arc.io"
+    opensea_chain_slug: "arc"
+    confirmation_depth: 1
+    poll_interval_seconds: 2.0
+    log_batch_size: 10
+    mint_threshold: 15
+    min_mints: 15
+    window: 300
+    cooldown: 1800
+    max_contract_age_hours: 72
+    alert_on_old_contracts: false
+    live_mint_max_minutes: 10.0
+    slowing_mint_max_minutes: 30.0
+
+  # INJECTIVE (EVM):
+  # NOTE: Do NOT enable Injective until the user confirms its official EVM chain ID.
+  # injective:
+  #   name: "Injective"
+  #   enabled: false
+

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETH Wallet Transaction Filter — Filter Wallets by Tx Count &amp; Export CSV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #090d16;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.65);
+    }
+    .input-dark {
+      background-color: #0b1120;
+      border: 1px solid #334155;
+      color: #f8fafc;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .input-dark:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-30 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-indigo-500/20 font-bold text-white text-lg">
+          Ξ
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">ETH Wallet Sheet Transaction Filter</h1>
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Batch RPC + CSV Export</span>
+          </div>
+          <p class="text-xs text-slate-400">Paste a sheet of wallets, pick the number of transactions made (e.g. 100 txs), and download as a CSV file</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5">
+          <span class="text-xs text-slate-400">Chain:</span>
+          <select id="chainSelect" class="bg-transparent text-xs font-semibold text-white focus:outline-none cursor-pointer">
+            <option value="ethereum">Ethereum (Chain ID 1)</option>
+          </select>
+        </div>
+
+        <div id="apiStatusBadge" class="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Ethereum RPC Ready</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- Left Column: Input Sheet & Transaction Count Controls (5 cols on lg) -->
+    <section class="lg:col-span-5 flex flex-col gap-5">
+
+      <!-- Card 1: Paste Sheet of Wallets -->
+      <div class="glass-card rounded-2xl p-5 shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-xs font-bold flex items-center justify-center">1</span>
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider">Paste Sheet of Wallets</h2>
+          </div>
+          <span id="detectedWalletsBadge" class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+            0 valid wallets
+          </span>
+        </div>
+
+        <textarea
+          id="walletsTextarea"
+          rows="8"
+          placeholder="Paste your spreadsheet / CSV / list of wallet addresses here...&#10;0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&#10;0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B&#10;0x28C6c06298d514Db089934071355E5743bf21d60"
+          class="input-dark w-full rounded-xl p-3 text-xs font-mono leading-relaxed resize-y"
+        ></textarea>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 mt-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <label class="cursor-pointer inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-200 border border-indigo-500/40 transition">
+              <svg class="w-3.5 h-3.5 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+              <span>Upload CSV / TXT Sheet</span>
+              <input id="walletFileInput" type="file" accept=".csv,.txt,.tsv,.json" class="hidden" />
+            </label>
+            <button id="loadSampleBtn" type="button" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+              Load Sample Wallets
+            </button>
+            <button id="clearWalletsBtn" type="button" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 transition">
+              Clear
+            </button>
+          </div>
+          <span id="invalidTokensWarning" class="text-[11px] text-amber-400 hidden"></span>
+        </div>
+      </div>
+
+      <!-- Card 2: Pick Number of Transactions Made -->
+      <div class="glass-card rounded-2xl p-5 shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center justify-center">2</span>
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider">Pick Transactions Made</h2>
+          </div>
+          <span id="countSummaryPill" class="text-xs font-mono px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+            At least ≥ 100 txs
+          </span>
+        </div>
+
+        <!-- Mode Selector Tabs -->
+        <div class="grid grid-cols-4 gap-1.5 bg-slate-950/90 p-1 rounded-xl border border-slate-800 mb-4">
+          <button type="button" data-mode="min" class="mode-tab py-1.5 px-2 rounded-lg text-xs font-medium bg-indigo-600 text-white shadow transition">
+            At Least (&ge; N)
+          </button>
+          <button type="button" data-mode="exact" class="mode-tab py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+            Exact (= N)
+          </button>
+          <button type="button" data-mode="max" class="mode-tab py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+            At Most (&le; N)
+          </button>
+          <button type="button" data-mode="range" class="mode-tab py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+            Range
+          </button>
+        </div>
+
+        <!-- Single Count Picker -->
+        <div id="singleCountContainer">
+          <label id="singleCountLabel" for="exactCountInput" class="block text-xs font-medium text-slate-300 mb-1.5">
+            Minimum Number of Transactions Made on Ethereum
+          </label>
+          <div class="flex items-center gap-2">
+            <button type="button" id="decrementCountBtn" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-base flex items-center justify-center transition">−</button>
+            <input
+              id="exactCountInput"
+              type="number"
+              min="0"
+              step="1"
+              value="100"
+              class="input-dark flex-1 rounded-xl px-4 py-2 text-center text-lg font-bold font-mono"
+            />
+            <button type="button" id="incrementCountBtn" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-base flex items-center justify-center transition">+</button>
+          </div>
+
+          <!-- Quick Number Pills -->
+          <div class="flex flex-wrap items-center gap-1.5 mt-3">
+            <span class="text-[11px] text-slate-400 mr-1">Quick pick:</span>
+            <button type="button" data-tx-count="1" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">1</button>
+            <button type="button" data-tx-count="10" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">10</button>
+            <button type="button" data-tx-count="25" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">25</button>
+            <button type="button" data-tx-count="50" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">50</button>
+            <button type="button" data-tx-count="100" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-indigo-600/30 border border-indigo-500/50 text-indigo-200 transition">100</button>
+            <button type="button" data-tx-count="250" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">250</button>
+            <button type="button" data-tx-count="500" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">500</button>
+            <button type="button" data-tx-count="1000" class="tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition">1000</button>
+          </div>
+        </div>
+
+        <!-- Range Count Picker -->
+        <div id="rangeCountContainer" class="hidden grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Min Transactions</label>
+            <input id="minCountInput" type="number" min="0" step="1" value="100" class="input-dark w-full rounded-xl px-3 py-2 text-sm font-mono" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Max Transactions</label>
+            <input id="maxCountInput" type="number" min="0" step="1" value="500" class="input-dark w-full rounded-xl px-3 py-2 text-sm font-mono" />
+          </div>
+        </div>
+
+        <!-- Optional Specific Target Contract / Recipient Filter -->
+        <details class="mt-4 pt-3 border-t border-slate-800/80 group">
+          <summary class="text-xs font-medium text-slate-400 hover:text-slate-200 cursor-pointer flex items-center justify-between select-none">
+            <span>Optional: Filter by Specific Target Address / ETH Value</span>
+            <span class="text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="mt-3 space-y-3">
+            <div>
+              <label for="targetAddress" class="block text-[11px] text-slate-400 mb-1">
+                Specific Recipient / Contract Address (leave blank to count all wallet transactions)
+              </label>
+              <input
+                id="targetAddress"
+                type="text"
+                placeholder="0x... (optional)"
+                class="input-dark w-full rounded-lg px-3 py-2 text-xs font-mono"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Min ETH Sent per Tx</label>
+                <input id="minEthInput" type="number" step="any" min="0" placeholder="Optional" class="input-dark w-full rounded-lg px-2.5 py-1.5 text-xs font-mono" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Max ETH Sent per Tx</label>
+                <input id="maxEthInput" type="number" step="any" min="0" placeholder="Optional" class="input-dark w-full rounded-lg px-2.5 py-1.5 text-xs font-mono" />
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Error Banner -->
+        <div id="errorBanner" class="hidden mt-4 p-3 rounded-xl bg-rose-950/70 border border-rose-500/40 text-xs text-rose-200"></div>
+
+        <!-- Submit Button -->
+        <button
+          id="runFilterBtn"
+          type="button"
+          class="mt-4 w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 flex items-center justify-center gap-2 transition disabled:opacity-50"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          <span id="runBtnText">Filter Wallets Now</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Right Column: Filtered Wallets & CSV Download (7 cols on lg) -->
+    <section class="lg:col-span-7 flex flex-col gap-5">
+
+      <!-- Summary KPI Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+        <div class="glass-card rounded-2xl p-4">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400">Wallets Scanned</p>
+          <p id="statTotalScanned" class="text-2xl font-bold font-mono text-white mt-1">0</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 border-emerald-500/30">
+          <p class="text-[11px] uppercase tracking-wider text-emerald-400">Matched Wallets</p>
+          <p id="statMatchedWallets" class="text-2xl font-bold font-mono text-emerald-400 mt-1">0</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400">Total Txs (Matched)</p>
+          <p id="statMatchingTxs" class="text-2xl font-bold font-mono text-indigo-300 mt-1">0</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400">ETH Balance (Matched)</p>
+          <p id="statTotalEth" class="text-2xl font-bold font-mono text-amber-300 mt-1">0 ETH</p>
+        </div>
+      </div>
+
+      <!-- Results Table & CSV Export Card -->
+      <div class="glass-card rounded-2xl p-5 flex-1 flex flex-col shadow-xl min-h-[500px]">
+        <!-- Toolbar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+          <!-- View Filter Tabs -->
+          <div class="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
+            <button type="button" data-result-tab="matched" class="result-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-600/25 text-emerald-300 border border-emerald-500/30 transition">
+              Matched (<span id="tabCountMatched">0</span>)
+            </button>
+            <button type="button" data-result-tab="all" class="result-tab px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+              All (<span id="tabCountAll">0</span>)
+            </button>
+            <button type="button" data-result-tab="unmatched" class="result-tab px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+              Unmatched (<span id="tabCountUnmatched">0</span>)
+            </button>
+          </div>
+
+          <!-- CSV Download & Copy Actions -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              id="downloadMatchedCsvBtn"
+              type="button"
+              disabled
+              class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 disabled:opacity-40 transition"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Matched CSV</span>
+            </button>
+            <button
+              id="downloadAllCsvBtn"
+              type="button"
+              disabled
+              class="text-xs font-medium px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 disabled:opacity-40 transition"
+            >
+              Download All CSV
+            </button>
+            <button
+              id="copyMatchedBtn"
+              type="button"
+              disabled
+              class="text-xs font-medium px-3 py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/35 text-indigo-300 border border-indigo-500/30 disabled:opacity-40 transition"
+            >
+              Copy Wallets
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty / Initial State -->
+        <div id="emptyResultsState" class="flex-1 flex flex-col items-center justify-center text-center py-16 px-4">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-emerald-400 mb-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-sm font-semibold text-white">Paste Your Wallet Sheet &amp; Filter by Transactions</h3>
+          <p class="text-xs text-slate-400 max-w-md mt-1 leading-relaxed">
+            Paste a list or spreadsheet of Ethereum wallets on the left, set your transaction threshold (defaults to <span class="text-emerald-300 font-mono">100</span> transactions), click <span class="text-indigo-300 font-medium">Filter Wallets Now</span>, and download your filtered CSV file.
+          </p>
+        </div>
+
+        <!-- Results Table Container -->
+        <div id="resultsTableWrapper" class="hidden flex-1 overflow-x-auto mt-3">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-[11px] uppercase tracking-wider text-slate-400">
+                <th class="py-2.5 px-3">#</th>
+                <th class="py-2.5 px-3">Wallet Address</th>
+                <th class="py-2.5 px-3">Status</th>
+                <th class="py-2.5 px-3 text-right">Transactions Made</th>
+                <th class="py-2.5 px-3 text-right">Wallet Balance</th>
+                <th class="py-2.5 px-3 text-right">Explorer</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTableBody" class="divide-y divide-slate-800/60 text-xs"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    const state = {
+      countMode: 'min',
+      resultTab: 'matched',
+      lastResponse: null,
+      chains: [],
+      currentSymbol: 'ETH',
+    };
+
+    const ADDRESS_RE = /0x[a-fA-F0-9]{40}/gi;
+
+    const SAMPLE_WALLETS = [
+      '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045',
+      '0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B',
+      '0x28C6c06298d514Db089934071355E5743bf21d60',
+      '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
+      '0x000000000000000000000000000000000000dead',
+    ];
+
+    // DOM Elements
+    const chainSelect = document.getElementById('chainSelect');
+    const walletsTextarea = document.getElementById('walletsTextarea');
+    const detectedWalletsBadge = document.getElementById('detectedWalletsBadge');
+    const invalidTokensWarning = document.getElementById('invalidTokensWarning');
+    const walletFileInput = document.getElementById('walletFileInput');
+    const loadSampleBtn = document.getElementById('loadSampleBtn');
+    const clearWalletsBtn = document.getElementById('clearWalletsBtn');
+    const exactCountInput = document.getElementById('exactCountInput');
+    const minCountInput = document.getElementById('minCountInput');
+    const maxCountInput = document.getElementById('maxCountInput');
+    const singleCountContainer = document.getElementById('singleCountContainer');
+    const rangeCountContainer = document.getElementById('rangeCountContainer');
+    const singleCountLabel = document.getElementById('singleCountLabel');
+    const countSummaryPill = document.getElementById('countSummaryPill');
+    const targetAddressInput = document.getElementById('targetAddress');
+    const minEthInput = document.getElementById('minEthInput');
+    const maxEthInput = document.getElementById('maxEthInput');
+    const errorBanner = document.getElementById('errorBanner');
+    const runFilterBtn = document.getElementById('runFilterBtn');
+    const runBtnText = document.getElementById('runBtnText');
+
+    const statTotalScanned = document.getElementById('statTotalScanned');
+    const statMatchedWallets = document.getElementById('statMatchedWallets');
+    const statMatchingTxs = document.getElementById('statMatchingTxs');
+    const statTotalEth = document.getElementById('statTotalEth');
+    const tabCountMatched = document.getElementById('tabCountMatched');
+    const tabCountAll = document.getElementById('tabCountAll');
+    const tabCountUnmatched = document.getElementById('tabCountUnmatched');
+    const downloadMatchedCsvBtn = document.getElementById('downloadMatchedCsvBtn');
+    const downloadAllCsvBtn = document.getElementById('downloadAllCsvBtn');
+    const copyMatchedBtn = document.getElementById('copyMatchedBtn');
+    const emptyResultsState = document.getElementById('emptyResultsState');
+    const resultsTableWrapper = document.getElementById('resultsTableWrapper');
+    const resultsTableBody = document.getElementById('resultsTableBody');
+
+    function showError(msg) {
+      if (!msg) {
+        errorBanner.classList.add('hidden');
+        errorBanner.textContent = '';
+        return;
+      }
+      errorBanner.textContent = msg;
+      errorBanner.classList.remove('hidden');
+    }
+
+    function updateCountSummary() {
+      const mode = state.countMode;
+      const n = parseInt(exactCountInput.value || '0', 10);
+      if (mode === 'min') {
+        singleCountLabel.textContent = 'Minimum Number of Transactions Made (≥ N)';
+        countSummaryPill.textContent = `At least ≥ ${n} tx${n === 1 ? '' : 's'}`;
+      } else if (mode === 'exact') {
+        singleCountLabel.textContent = 'Exact Number of Transactions Made (= N)';
+        countSummaryPill.textContent = `Exact = ${n} tx${n === 1 ? '' : 's'}`;
+      } else if (mode === 'max') {
+        singleCountLabel.textContent = 'Maximum Number of Transactions Made (≤ N)';
+        countSummaryPill.textContent = `At most ≤ ${n} tx${n === 1 ? '' : 's'}`;
+      } else if (mode === 'range') {
+        const minC = parseInt(minCountInput.value || '0', 10);
+        const maxC = parseInt(maxCountInput.value || '0', 10);
+        countSummaryPill.textContent = `Range: ${minC} – ${maxC} txs`;
+      }
+
+      document.querySelectorAll('.tx-count-pill').forEach(btn => {
+        const val = parseInt(btn.getAttribute('data-tx-count'), 10);
+        if (val === n && mode !== 'range') {
+          btn.className = 'tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-indigo-600/30 border border-indigo-500/50 text-indigo-200 transition';
+        } else {
+          btn.className = 'tx-count-pill text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition';
+        }
+      });
+    }
+
+    function updateDetectedWalletsCount() {
+      const raw = walletsTextarea.value || '';
+      const matches = raw.match(ADDRESS_RE) || [];
+      const unique = new Set(matches.map(a => a.toLowerCase()));
+      detectedWalletsBadge.textContent = `${unique.size} valid wallet${unique.size === 1 ? '' : 's'}`;
+      if (unique.size > 0) {
+        detectedWalletsBadge.className = 'text-xs font-mono px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30';
+      } else {
+        detectedWalletsBadge.className = 'text-xs font-mono px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700';
+      }
+    }
+
+    // Mode Switching
+    document.querySelectorAll('.mode-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        state.countMode = tab.getAttribute('data-mode');
+        document.querySelectorAll('.mode-tab').forEach(t => {
+          if (t === tab) {
+            t.className = 'mode-tab py-1.5 px-2 rounded-lg text-xs font-medium bg-indigo-600 text-white shadow transition';
+          } else {
+            t.className = 'mode-tab py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+          }
+        });
+        if (state.countMode === 'range') {
+          singleCountContainer.classList.add('hidden');
+          rangeCountContainer.classList.remove('hidden');
+        } else {
+          singleCountContainer.classList.remove('hidden');
+          rangeCountContainer.classList.add('hidden');
+        }
+        updateCountSummary();
+      });
+    });
+
+    // Stepper & Quick Count Pills
+    document.getElementById('decrementCountBtn').addEventListener('click', () => {
+      const curr = parseInt(exactCountInput.value || '0', 10);
+      exactCountInput.value = Math.max(0, curr - 1);
+      updateCountSummary();
+    });
+    document.getElementById('incrementCountBtn').addEventListener('click', () => {
+      const curr = parseInt(exactCountInput.value || '0', 10);
+      exactCountInput.value = curr + 1;
+      updateCountSummary();
+    });
+    exactCountInput.addEventListener('input', updateCountSummary);
+    minCountInput.addEventListener('input', updateCountSummary);
+    maxCountInput.addEventListener('input', updateCountSummary);
+
+    document.querySelectorAll('.tx-count-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        exactCountInput.value = btn.getAttribute('data-tx-count');
+        updateCountSummary();
+      });
+    });
+
+    // Wallet Textarea, Sample & File Upload
+    walletsTextarea.addEventListener('input', updateDetectedWalletsCount);
+
+    loadSampleBtn.addEventListener('click', () => {
+      walletsTextarea.value = SAMPLE_WALLETS.join('\n');
+      updateDetectedWalletsCount();
+    });
+
+    clearWalletsBtn.addEventListener('click', () => {
+      walletsTextarea.value = '';
+      invalidTokensWarning.classList.add('hidden');
+      updateDetectedWalletsCount();
+    });
+
+    walletFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const content = ev.target.result || '';
+        walletsTextarea.value = walletsTextarea.value
+          ? walletsTextarea.value.trim() + '\n' + content.trim()
+          : content.trim();
+        updateDetectedWalletsCount();
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    });
+
+    // Run Filter
+    runFilterBtn.addEventListener('click', async () => {
+      showError('');
+      const rawWallets = walletsTextarea.value.trim();
+      const target = targetAddressInput.value.trim();
+      if (!rawWallets && !target) {
+        showError('Please paste or upload a sheet of wallet addresses first (or click "Load Sample Wallets").');
+        return;
+      }
+
+      const payload = {
+        chain: chainSelect.value,
+        target_address: target || null,
+        wallets: rawWallets,
+        count_mode: state.countMode,
+        exact_count: parseInt(exactCountInput.value || '100', 10),
+        min_count: state.countMode === 'range'
+          ? parseInt(minCountInput.value || '0', 10)
+          : parseInt(exactCountInput.value || '100', 10),
+        max_count: state.countMode === 'range'
+          ? parseInt(maxCountInput.value || '999999', 10)
+          : parseInt(exactCountInput.value || '100', 10),
+        min_eth: minEthInput.value !== '' ? parseFloat(minEthInput.value) : null,
+        max_eth: maxEthInput.value !== '' ? parseFloat(maxEthInput.value) : null,
+      };
+
+      runFilterBtn.disabled = true;
+      runBtnText.textContent = 'Scanning Wallets on Ethereum...';
+
+      try {
+        const resp = await fetch('/api/filter-wallets', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await resp.json();
+        if (!resp.ok) {
+          showError(data.error || 'Failed to filter wallets.');
+          return;
+        }
+        state.lastResponse = data;
+        state.currentSymbol = (data.chain && data.chain.symbol) || 'ETH';
+        renderResults();
+      } catch (err) {
+        showError('Request failed: ' + err.message);
+      } finally {
+        runFilterBtn.disabled = false;
+        runBtnText.textContent = 'Filter Wallets Now';
+      }
+    });
+
+    function renderResults() {
+      const data = state.lastResponse;
+      if (!data) return;
+
+      const sym = state.currentSymbol;
+      statTotalScanned.textContent = data.summary.total_wallets_scanned;
+      statMatchedWallets.textContent = data.summary.matched_wallets_count;
+      statMatchingTxs.textContent = data.summary.total_matching_txs.toLocaleString();
+      const ethStat = data.summary.scan_mode === 'wallet_tx_count'
+        ? (data.summary.total_eth_balance_matched || '0')
+        : (data.summary.total_eth_sent_matched || '0');
+      statTotalEth.textContent = `${ethStat} ${sym}`;
+
+      tabCountMatched.textContent = data.summary.matched_wallets_count;
+      tabCountAll.textContent = data.summary.total_wallets_scanned;
+      tabCountUnmatched.textContent = data.summary.unmatched_wallets_count;
+
+      downloadMatchedCsvBtn.disabled = data.summary.matched_wallets_count === 0;
+      downloadAllCsvBtn.disabled = data.results.length === 0;
+      copyMatchedBtn.disabled = data.summary.matched_wallets_count === 0;
+
+      emptyResultsState.classList.add('hidden');
+      resultsTableWrapper.classList.remove('hidden');
+
+      const filteredRows = data.results.filter(row => {
+        if (state.resultTab === 'matched' && !row.matched) return false;
+        if (state.resultTab === 'unmatched' && row.matched) return false;
+        return true;
+      });
+
+      resultsTableBody.innerHTML = '';
+
+      if (filteredRows.length === 0) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td colspan="6" class="py-10 text-center text-slate-400 text-xs">
+            No wallets in this tab matched the transaction threshold. Switch to "All (${data.summary.total_wallets_scanned})" to see all scanned wallets and their transaction counts.
+          </td>
+        `;
+        resultsTableBody.appendChild(tr);
+        return;
+      }
+
+      filteredRows.forEach((row, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-800/40 transition';
+        const statusBadge = row.matched
+          ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">✓ MATCHED</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-slate-800 text-slate-400 border border-slate-700">BELOW / NO MATCH</span>`;
+
+        const balOrSent = data.summary.scan_mode === 'wallet_tx_count'
+          ? `${row.eth_balance || '0'} ${sym}`
+          : `${row.total_eth_sent || '0'} ${sym}`;
+
+        tr.innerHTML = `
+          <td class="py-3 px-3 text-slate-500 font-mono">${idx + 1}</td>
+          <td class="py-3 px-3 font-mono text-slate-200">
+            <div class="flex items-center gap-2">
+              <span>${row.wallet}</span>
+              <button type="button" data-copy="${row.wallet}" class="copy-addr-btn text-[11px] text-slate-400 hover:text-white px-1.5 py-0.5 rounded bg-slate-800/80">
+                Copy
+              </button>
+            </div>
+          </td>
+          <td class="py-3 px-3">${statusBadge}</td>
+          <td class="py-3 px-3 text-right font-mono font-bold text-sm ${row.matched ? 'text-emerald-300' : 'text-slate-300'}">
+            ${row.matching_tx_count.toLocaleString()}
+          </td>
+          <td class="py-3 px-3 text-right font-mono text-amber-300">
+            ${balOrSent}
+          </td>
+          <td class="py-3 px-3 text-right">
+            <a href="${row.explorer_url}" target="_blank" rel="noopener" class="text-xs text-indigo-300 hover:text-indigo-200 underline">
+              Etherscan ↗
+            </a>
+          </td>
+        `;
+        resultsTableBody.appendChild(tr);
+      });
+
+      resultsTableBody.querySelectorAll('.copy-addr-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(btn.getAttribute('data-copy'));
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = prev; }, 1200);
+        });
+      });
+    }
+
+    // Result Tabs
+    document.querySelectorAll('.result-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.resultTab = btn.getAttribute('data-result-tab');
+        document.querySelectorAll('.result-tab').forEach(b => {
+          if (b === btn) {
+            b.className = 'result-tab px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-600/25 text-emerald-300 border border-emerald-500/30 transition';
+          } else {
+            b.className = 'result-tab px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+          }
+        });
+        renderResults();
+      });
+    });
+
+    // Download CSV helper
+    function triggerCsvDownload(matchedOnly) {
+      if (!state.lastResponse || !state.lastResponse.results) return;
+      const rows = matchedOnly
+        ? state.lastResponse.results.filter(r => r.matched)
+        : state.lastResponse.results;
+      const headers = ['wallet_address', 'transactions_made', 'eth_balance', 'matched', 'explorer_url'];
+      const csvLines = [headers.join(',')];
+      rows.forEach(r => {
+        csvLines.push([
+          r.wallet,
+          r.matching_tx_count,
+          r.eth_balance || '0',
+          r.matched ? 'YES' : 'NO',
+          r.explorer_url,
+        ].join(','));
+      });
+      const blob = new Blob([csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = matchedOnly
+        ? `filtered_wallets_${exactCountInput.value}txs_${Date.now()}.csv`
+        : `all_scanned_wallets_${Date.now()}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    downloadMatchedCsvBtn.addEventListener('click', () => triggerCsvDownload(true));
+    downloadAllCsvBtn.addEventListener('click', () => triggerCsvDownload(false));
+
+    copyMatchedBtn.addEventListener('click', () => {
+      if (!state.lastResponse || !state.lastResponse.matched_wallets) return;
+      navigator.clipboard.writeText(state.lastResponse.matched_wallets.join('\n'));
+      const orig = copyMatchedBtn.textContent;
+      copyMatchedBtn.textContent = 'Copied!';
+      setTimeout(() => { copyMatchedBtn.textContent = orig; }, 1500);
+    });
+
+    async function loadConfig() {
+      try {
+        const resp = await fetch('/api/config');
+        const cfg = await resp.json();
+        if (cfg.chains && cfg.chains.length > 0) {
+          state.chains = cfg.chains;
+          chainSelect.innerHTML = cfg.chains.map(c =>
+            `<option value="${c.key}" ${c.key === cfg.default_chain ? 'selected' : ''}>${c.name} (Chain ID ${c.chain_id})</option>`
+          ).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load config', e);
+      }
+    }
+
+    loadConfig();
+    updateCountSummary();
+  </script>
+</body>
+</html>
